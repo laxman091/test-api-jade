@@ -1,0 +1,26 @@
+doctype html
+html
+	head
+		title Employee Details
+	body
+		h1 Employees Records
+		table.table.table-hover.table-striped.table-bordered
+			thead
+				tr
+					th #
+					th FirstName
+					th LastName
+					th extension
+					th email
+					th Action
+			tbody
+				-for(var i = 0; i < employees.length; ++i) {
+				tr
+					th(scope='row') #{i+1}
+					td #{employees[i]['firstName']}
+					td #{employees[i]['lastName']}
+					td #{employees[i]['extension']}
+					td #{employees[i]['email']}
+					td
+						a(href="/employee?id="+employees[i]['id'])| Generate PDF
+				- }

@@ -1,0 +1,37 @@
+extends emplayout
+
+block content
+	.container
+		.header.clearfix
+			nav
+				ul.nav.nav-pills.pull-right
+					li.active(role='presentation')
+						a(href='/') Home
+					li(role='presentation')
+						a(href='employees') Employees
+					li(role='presentation')
+						a(href='#') Contact
+			h3.text-muted Jade Templade to generate pdf
+		.jumbotron
+			h1 Employee Deteails
+			p.lead
+				| This project based upon NodeJS, Express & PDFDocument, Jade Template.
+			p
+				a.btn.btn-lg.btn-success(href='/', role='button') Home
+		.row.marketing
+			.col-lg-6
+				h4 First Name:
+				p
+					| #{employee[0]['firstName']}
+				h4 Last Name:
+				p
+					| #{employee[0]['lastName']}
+			.col-lg-6
+				h4 Extension
+				p
+					| #{employee[0]['extension']}
+				h4 Email
+				p
+					| #{employee[0]['email']}
+		footer.footer
+			p © Web Code Services 2018

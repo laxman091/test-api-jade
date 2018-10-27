@@ -1,0 +1,19 @@
+{
+  "name": "test-api-jade",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "circular-json": "^0.5.9",
+    "express": "^4.16.4",
+    "jade": "^1.11.0",
+    "pdfkit": "^0.8.3",
+    "phantom": "^6.0.3",
+    "request": "^2.88.0"
+  }
+}
