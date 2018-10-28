@@ -1,6 +1,8 @@
 extends layout
 
 block content
+	.row
+	.col-lg-12
 		h1 Employees Records
 		table.table.table-hover.table-striped.table-bordered
 			thead
@@ -22,5 +24,5 @@ block content
 					td
 						a(href="/update?id="+employees[i]['id'])|	Update
 						a(href="/employee?id="+employees[i]['id'])|	Generate PDF
-
+						button.btn.btn-danger Delete
 				- }

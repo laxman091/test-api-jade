@@ -38,6 +38,15 @@ app.get('/employees', function(req, res) {
     });
 });
 
+
+app.get('/register', function(req, res, next) {  
+    let data = {
+        message: res
+    };
+    //res.status(200).send(json.result);
+    res.render('register');  // uncomment with proper jade template
+});
+
 /**
  * Employees API
  */
@@ -65,17 +74,6 @@ app.get('/employee', function(req, res, next) {
     	//var res_data = JSON.parse(body);
         //res.send(body);
         //response.writeHead(200, { 'Content-Type': 'text/html' });
-        var options = {
-            "format": "A4",
-            "orientation": "portrait",
-            "border": {
-                "top": "0.2in",
-                "right": "0.2in",
-                "bottom": "0.2in",
-                "left": "0.2in"
-            },
-            "timeout": "120000"
- };
         res.setHeader('Content-Type', 'text/html');
         res.render('employee',{'title': 'Employee Details','employee': body.employee});
         phantom.create().then(function(ph) {
@@ -97,6 +95,7 @@ app.get('/update', function(req, res, next) {
     var id = req.query.id; // $_GET["id"]
     // query a database and save data
     //res.status(200).send(data);
+    console.log(id);
     res.render('update',{'title': 'Update Employee', 'id': id});
 });
 
