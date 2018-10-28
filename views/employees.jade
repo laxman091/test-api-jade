@@ -1,8 +1,6 @@
-doctype html
-html
-	head
-		title Employee Details
-	body
+extends layout
+
+block content
 		h1 Employees Records
 		table.table.table-hover.table-striped.table-bordered
 			thead
@@ -22,5 +20,7 @@ html
 					td #{employees[i]['extension']}
 					td #{employees[i]['email']}
 					td
-						a(href="/employee?id="+employees[i]['id'])| Generate PDF
+						a(href="/update?id="+employees[i]['id'])|	Update
+						a(href="/employee?id="+employees[i]['id'])|	Generate PDF
+
 				- }

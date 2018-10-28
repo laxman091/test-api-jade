@@ -13,6 +13,13 @@ const JSON = require('circular-json');
 
 //app.use(bodyParser.json());  
 //app.use(bodyParser.urlencoded({ extended: false }));
+// Require static assets from public folder
+// being rendered res.render()
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(__dirname + '/public'));
+// Set view engine as EJS
+//app.engine('html', require('ejs').renderFile);
+//app.set('view engine', 'html');
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
@@ -57,6 +64,19 @@ app.get('/employee', function(req, res, next) {
         request(requestConfig, function(error, response, body) {
     	//var res_data = JSON.parse(body);
         //res.send(body);
+        //response.writeHead(200, { 'Content-Type': 'text/html' });
+        var options = {
+            "format": "A4",
+            "orientation": "portrait",
+            "border": {
+                "top": "0.2in",
+                "right": "0.2in",
+                "bottom": "0.2in",
+                "left": "0.2in"
+            },
+            "timeout": "120000"
+ };
+        res.setHeader('Content-Type', 'text/html');
         res.render('employee',{'title': 'Employee Details','employee': body.employee});
         phantom.create().then(function(ph) {
    		ph.createPage().then(function(page) {
@@ -73,6 +93,12 @@ app.get('/employee', function(req, res, next) {
     });
 });
 
+app.get('/update', function(req, res, next) {  
+    var id = req.query.id; // $_GET["id"]
+    // query a database and save data
+    //res.status(200).send(data);
+    res.render('update',{'title': 'Update Employee', 'id': id});
+});
 
 app.post('/api', function(req, res, next) {  
     let data = req.body;

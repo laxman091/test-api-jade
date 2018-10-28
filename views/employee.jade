@@ -10,23 +10,26 @@ block content
 					li(role='presentation')
 						a(href='employees') Employees
 					li(role='presentation')
-						a(href='#') Contact
+						a(href='/') Home
 			h3.text-muted Jade Templade to generate pdf
 		.jumbotron
-			h1 Employee Deteails
+			h1 Employee Details
 			p.lead
 				| This project based upon NodeJS, Express & PDFDocument, Jade Template.
 			p
 				a.btn.btn-lg.btn-success(href='/', role='button') Home
 		.row.marketing
-			.col-lg-6
+			.col-lg-3
+				.image-block
+				<img class="logo" src="http://localhost:4040/images/leopard.jpg" alt="My_Logo">
+			.col-lg-3
 				h4 First Name:
 				p
 					| #{employee[0]['firstName']}
 				h4 Last Name:
 				p
 					| #{employee[0]['lastName']}
-			.col-lg-6
+			.col-lg-3
 				h4 Extension
 				p
 					| #{employee[0]['extension']}
